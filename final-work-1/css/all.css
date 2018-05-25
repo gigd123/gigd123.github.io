@@ -193,7 +193,8 @@ h1 {
     height: 11px;
     margin: 0 auto;
     border: none;
-    border-bottom: 1px dashed #0066CC; }
+    border-bottom: 1px dashed #0066CC;
+    margin-bottom: 40px; }
   .content .content-downIcon {
     width: 25px;
     height: 25px;
@@ -207,10 +208,15 @@ h1 {
     content: url("../img/icons_down.png");
     display: block;
     position: absolute;
-    top: 4px;
+    top: 2px;
     right: 3px;
     width: 16px;
     height: 11px; }
+  .content .content-h2 {
+    text-align: center;
+    color: #8A82CC;
+    font-size: 32px;
+    font-weight: 900; }
   .content .content-attraction {
     max-width: 1000px;
     margin: 0 auto; }
@@ -327,3 +333,12 @@ h1 {
   .footer .footer-title {
     text-align: center;
     font-size: 19.2px; } }
+
+#top-btn {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  background-image: url("../img/btn_goTop.png");
+  background-size: contain;
+  width: 30px;
+  height: 30px; }

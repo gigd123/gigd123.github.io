@@ -2604,11 +2604,13 @@ var data = [
 var dataLen = data.length;
 var selectBtn = document.getElementById('select-btn');
 var attraction = document.querySelector('.content-attraction');
+var contentTitle = document.querySelector('.content-h2');
 function changeList(e) {
     var opName = e.target.value;
     var str = '';
     for (var i = 0; i < dataLen; i++) {
         if (opName == data[i].Zone) {
+            contentTitle.textContent = data[i].Zone;
             str += '<li><div><img class="picture" src="' + data[i].Picture1 + '" alt="">' +
                 '<h3 class="attraction-h3">' + data[i].Name + '</h3></div>' +
                 '<div class="attraction-txt">' +
@@ -2623,25 +2625,15 @@ function changeList(e) {
 };
 selectBtn.addEventListener('change', changeList);
 
-function changeWidth() {
-
-    $('#selectBtn').css("width", "auto");
-
-}
-
-function resetWidth() {
-
-    $('#selectBtn').css("width", "100px");
-
-}
 
 var navBtn = document.querySelector('.nav-menu');
-
 function updateList(e) {
+    e.preventDefault();
     var btnTxt = e.target.textContent;
     var str = '';
     for (var i = 0; i < dataLen; i++) {
         if (btnTxt == data[i].Zone) {
+            contentTitle.textContent = data[i].Zone;
             str += '<li><div><img class="picture" src="' + data[i].Picture1 + '" alt="">' +
                 '<h3 class="attraction-h3">' + data[i].Name + '</h3></div>' +
                 '<div class="attraction-txt">' +
@@ -2656,6 +2648,11 @@ function updateList(e) {
 };
 
 navBtn.addEventListener('click', updateList);
+$(document).ready(function () {
+    $('#top-btn').click(function () {
+        $('html,body').animate({ scrollTop: '0px' }, 800);
+    });
+});
 
 
 
