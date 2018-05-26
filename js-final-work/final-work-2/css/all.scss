@@ -239,6 +239,12 @@ header{
 }
 .main{
     background: #F5F5F5;
+    h2{
+        font-size: $font-s*1.5;
+        font-weight: 900;
+        color: $c-grey;
+        text-align: center;
+    }
 }
 .data-list {
     li{

@@ -35,6 +35,9 @@ function addData(){
     var myHeight = document.getElementById('myHeight').value;
     var myWeight = document.getElementById('myWeight').value;
     var bmi = (myWeight / Math.pow(myHeight*0.01, 2)).toFixed(2);
+    if(myHeight == 0 || myWeight ==0){
+        alert('請確實填寫身高、體重');
+    };
     var ary = {
         bmiData:bmi,
         heightData:myHeight,
