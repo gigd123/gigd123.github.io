@@ -215,6 +215,7 @@ $bgc-light-blue:#559AC8;
 		margin: 0 auto;
 		border:none;
 		border-bottom:1px dashed #0066CC;
+		margin-bottom: 40px;
 	}
 	.content-downIcon {
 		width:25px;
@@ -230,10 +231,16 @@ $bgc-light-blue:#559AC8;
 		content: url('../img/icons_down.png');
 		display: block;
 		position: absolute;
-		top: 4px;
+		top: 2px;
 		right: 3px;
 		width:16px;
 		height: 11px;
+	}
+	.content-h2 {
+		text-align: center;
+		color: $bgc-light-purple;
+		font-size: $font-m*2;
+		font-weight: 900;
 	}
 	.content-attraction {
 		max-width: 1000px;
@@ -388,4 +395,13 @@ $bgc-light-blue:#559AC8;
 			font-size: $font-m*1.2;
 	} 	
 }
+}
+#top-btn{
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+	background-image: url('../img/btn_goTop.png');
+	background-size: contain;
+	width: 30px;
+	height: 30px;
 }
