@@ -1,0 +1,214 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+  line-height: 1;
+  letter-spacing: 1px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+*{
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none
+}
+.clear-both{
+  clear: both;
+}
+/* 文字相關 */
+.line-h{
+  line-height: 1.5;
+}
+.text-center{
+  text-align: center;
+}
+/*顏色*/
+.color-navy{
+  color: #171C61;
+}
+.bgc-navy {
+  background-color: #171C61;
+}
+.bgc-lavender {
+  background-color: #D0D1DD;
+}
+.bgc-beige {
+  background-color: #EFEFEF;
+}
+/* header */
+.logo {
+	width: 123px;
+	height: 130px;
+	background-image: url('../img/LOGO.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+  background-position: center;
+  text-indent: 101%;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 30px;
+}
+
+@media (max-width:992px){
+  .logo {
+    background-image: url('');
+    text-indent: 0;
+    white-space: none;
+    height: 90px;
+  }
+  .logo span {
+    display: block;
+  }
+}
+
+/* navbar */
+nav {
+  font-size: 20px;
+}
+nav ul li a span{
+  padding: 10px 30px;
+}
+nav ul li a span:hover{
+  background-color: #171C61;
+  color: #fff !important;
+  transition: all 1s;
+}
+.moblie-logo {
+  width: 40px;
+	height: 40px;
+	background-image: url('../img/LOGO.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+@media (max-width:992px){
+  nav ul li a span{
+    padding: 10px 0 10px 13px;
+  }
+}
+/*banner-swiper*/
+.banner-img{
+  width: 100%;
+}
+.swiper-container {
+  height:500px;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.swiper-pagination {
+  color: #fff;
+}
+.banner-1 {
+  background-image: url('../img/banner1.jpg');
+  background-size: cover;
+}
+.banner-2 {
+  background-image: url('../img/banner2.jpg');
+  background-size: cover;
+}
+.banner-3 {
+  background-image: url('../img/banner3.jpg');
+  background-size: cover;
+}
+.banner-p {
+  background-position-y: 0;
+  margin:0;
+  background-repeat: no-repeat;
+}
+@media (max-width:768px){
+	.swiper-container {
+    height:400px;
+  }
+  .banner{
+    padding: 0;
+  }
+}
+@media (max-width:576px){
+  .swiper-container {
+    height:300px;
+  }
+  .banner{
+    padding: 0;
+  }
+}
+@media (max-width:400px){
+  .swiper-container {
+    height:200px;
+  }
+  .banner{
+    padding: 0;
+  }
+}
+
+
+/* footer start */
+footer .container{
+	letter-spacing: 1px;
+	height: 80px;
+	line-height: 80px;
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+}
