@@ -352,7 +352,13 @@ header .navbar li a {
   max-height: 800px;
 }
 
-/*container end*/
+/*新增task*/
+.taskList {
+  max-width: 660px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
 .new-title {
   background-color: #F2F2F2;
   font-size: 1.5rem;
@@ -360,6 +366,7 @@ header .navbar li a {
   padding: 1.5rem 2rem;
   box-shadow: 2px 2px 8px grey;
   transition: all 1s;
+  margin-bottom: 2rem;
 }
 
 .new-title .title-roof {
@@ -499,5 +506,5 @@ header .navbar li a {
   color: #fff;
 }
 
-/*新增task*/
+/*container end*/
 /*# sourceMappingURL=style.css.map */

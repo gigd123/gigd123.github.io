@@ -1,7 +1,7 @@
 /*focus在addTask時候，觸發事件*/ 
 const addTask = document.getElementById('addTask');
 addTask.addEventListener('focus',addTitleBox);
-const container = document.querySelector('.container');
+const taskList = document.querySelector('.taskList');
 const addBox = document.querySelector('.addBox');
 const title = document.querySelector('.title');
 const data = JSON.parse(localStorage.getItem('allData')) || [];
@@ -37,16 +37,17 @@ function addData(){
        comment:comment
    };
    data.push(ary);
+   updateList(data);
    localStorage.setItem('allData',JSON.stringify(data));
    title.classList.remove('active');
-    addBox.style.display ='block'; 
+   addBox.style.display ='block'; 
 };
 
 function updateList(items){
     let str='';
     const len =items.length;
     for(let i=0;i<len;i++){
-        str += `<div class="new-title">
+        str += `<li class="new-title">
         <div class="title-roof">
             <input class="title-check" type="checkbox" name="vehicle" value="Bike">
             <input type="text" class="title-text" placeholder="${items[i].title}">
@@ -101,7 +102,7 @@ function updateList(items){
                 <a href="#" class="editTask-btn-add">+ Add Task</a>
             </li>
         </ul>
-    </div>`;
+    </li>`;
     }
-    container.innerHTML =str;
+    taskList.innerHTML =str;
 }

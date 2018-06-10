@@ -336,7 +336,13 @@ header {
     }
 }
 
-/*container end*/
+
+/*新增task*/ 
+.taskList{
+    max-width: 660px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
 .new-title {
     background-color: $beige;
     font-size: 1.5rem;
@@ -344,6 +350,7 @@ header {
     padding: 1.5rem 2rem;
     box-shadow: 2px 2px 8px grey;
     transition: all 1s;
+    margin-bottom: 2rem;
     // position: relative;
     .title-roof {
         display: flex;
@@ -461,4 +468,4 @@ header {
         }
     }
 }
-/*新增task*/ 
+/*container end*/
