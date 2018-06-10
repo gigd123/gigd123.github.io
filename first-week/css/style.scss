@@ -205,53 +205,200 @@ header {
             border-radius: 5px;
         }
     }
-    .title {
-        background-color: $beige;
-        font-size: 1.5rem;
-        border-radius: 5px;
-        box-shadow: 2px 2px 8px grey;
+    .addTitle{
         max-height: 0;
         overflow: hidden;
         transition: all 1s;
-        // position: relative;
-        .title-roof {
-            display: flex;
-            margin-bottom: 1rem;
-            span,
-            input {
-                display: block;
+        .title {
+            background-color: $beige;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            padding: 1.5rem 2rem;
+            box-shadow: 2px 2px 8px grey;
+            margin-bottom: 2px;
+            .title-roof {
+                display: flex;
+                margin-bottom: 1rem;
+                span,
+                input {
+                    display: block;
+                }
+                .title-check {
+                    border-radius: 2px;
+                    background-color: #fff;
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    margin-right: 1rem;
+                }
+                .title-text {
+                    background-color: $beige;
+                    font-size: 1.5rem;
+                    flex-grow: 4;
+                }
+                .title-edit {
+                    align-items: flex-end;
+                    margin-left: 1.5rem;
+                }
             }
-            .title-check {
-                border-radius: 2px;
-                background-color: #fff;
-                width: 1.5rem;
-                height: 1.5rem;
-                margin-right: 1rem;
-            }
-            .title-text {
-                background-color: $beige;
-                font-size: 1.5rem;
-                flex-grow: 4;
-            }
-            .title-edit {
-                align-items: flex-end;
-                margin-left: 1.5rem;
-            }
-        }
-        .title-footer {
-            padding: 0 50px;
-            display: flex;
-            span,
-            input {
-                display: block;
-            }
-            span {
-                color: $icon-color;
-                margin-right: 1rem;
+            .title-footer {
+                padding: 0 50px;
+                display: flex;
+                span,
+                input {
+                    display: block;
+                }
+                span {
+                    color: $icon-color;
+                    margin-right: 1rem;
+                }
             }
         }
         .editTask{
+            background-color: $beige;
             width: 100%;
+            padding: 25.6px 72px;
+            box-shadow: 2px 2px 8px grey;
+            left: 0;
+            li{
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                span {
+                    margin-right:0.5rem;
+                    i{
+                        margin-right: 5px;
+                    }
+                }
+                h2 {
+                    margin-top: 0.5rem;
+                    padding: 0 1rem;
+                    .task-file{
+                        background-color: $grey;
+                        width: 2rem;
+                        height: 2rem;
+                        display: block;
+                        position: relative;
+                        transition: all 0.5s;
+                        cursor: pointer;
+                    }
+                    .task-file:hover{
+                        background-color: $light-blue;
+                    }
+                    .task-file::after{
+                        position: absolute;
+                        content: '+';
+                        font-size: 1.8rem;
+                        color: #fff;
+                        top: 50%;
+                        transform: translate(-50%,-50%);
+                        left: 50%;
+                    }
+                    textarea{
+                        width: 100%;
+                        resize: none;
+                        padding: 0.5rem 1rem;
+                    }
+                }
+                input{
+                    padding: 0.5rem 1rem;
+                    margin-right: 0.5rem;
+                }
+            }
+            .editTask-btn{
+                position: relative;
+                height: 60px;
+                a{
+                    position: absolute;
+                    display: block;
+                    width: 50%;
+                    height: 60px;
+                    text-align: center;
+                    line-height: 60px;
+                    transition: all 0.5s;
+                    box-shadow: 2px 2px 8px grey;
+                }
+                a:hover{
+                    z-index: 1;
+                    width: 55%;
+                    height: 70px;
+                    line-height: 70px;
+                }
+                .editTask-btn-cancel{
+                    color: red;
+                    background-color: #fff;
+                }
+                .editTask-btn-add{
+                    right: 0;
+                    background-color: $light-blue;
+                    color: #fff;
+                }
+            }
+        }   
+    }
+    .addTitle.active{
+        max-height: 800px;   
+    }
+}
+
+
+/*新增task*/ 
+.taskList{
+    max-width: 660px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+.new-title {
+    background-color: $beige;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    padding: 1.5rem 2rem;
+    box-shadow: 2px 2px 8px grey;
+    transition: all 1s;
+    margin-bottom: 2rem;
+    // position: relative;
+    .title-roof {
+        display: flex;
+        margin-bottom: 1rem;
+        span,
+        input {
+            display: block;
+        }
+        .title-focus,.title-edit{
+            cursor: pointer;
+        }
+        .title-check {
+            border-radius: 2px;
+            background-color: #fff;
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 1rem;
+        }
+        .title-text {
+            background-color: $beige;
+            font-size: 1.5rem;
+            flex-grow: 4;
+        }
+        .title-edit {
+            align-items: flex-end;
+            margin-left: 1.5rem;
+        }
+    }
+    .title-footer {
+        padding: 0 50px;
+        display: flex;
+        span,
+        input {
+            display: block;
+        }
+        span {
+            color: $icon-color;
+            margin-right: 1rem;
+        }
+    }
+    .editTask-hide{
+        max-height: 0;
+        overflow: hidden;
+        transition: all 1s;
+        .editTask{
             padding: 25.6px 72px;
             // position: absolute;
             left: 0;
@@ -330,142 +477,8 @@ header {
             }
         }
     }
-    .title.active{
-        padding: 1.5rem 2rem;
-        max-height: 800px;   
-    }
-}
-
-
-/*新增task*/ 
-.taskList{
-    max-width: 660px;
-    margin: 0 auto;
-    padding-bottom: 30px;
-}
-.new-title {
-    background-color: $beige;
-    font-size: 1.5rem;
-    border-radius: 5px;
-    padding: 1.5rem 2rem;
-    box-shadow: 2px 2px 8px grey;
-    transition: all 1s;
-    margin-bottom: 2rem;
-    // position: relative;
-    .title-roof {
-        display: flex;
-        margin-bottom: 1rem;
-        span,
-        input {
-            display: block;
-        }
-        .title-check {
-            border-radius: 2px;
-            background-color: #fff;
-            width: 1.5rem;
-            height: 1.5rem;
-            margin-right: 1rem;
-        }
-        .title-text {
-            background-color: $beige;
-            font-size: 1.5rem;
-            flex-grow: 4;
-        }
-        .title-edit {
-            align-items: flex-end;
-            margin-left: 1.5rem;
-        }
-    }
-    .title-footer {
-        padding: 0 50px;
-        display: flex;
-        span,
-        input {
-            display: block;
-        }
-        span {
-            color: $icon-color;
-            margin-right: 1rem;
-        }
-    }
-    .editTask{
-        width: 100%;
-        padding: 25.6px 72px;
-        // position: absolute;
-        left: 0;
-        li{
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            span {
-                margin-right:0.5rem;
-                i{
-                    margin-right: 5px;
-                }
-            }
-            h2 {
-                margin-top: 0.5rem;
-                padding: 0 1rem;
-                .task-file{
-                    background-color: $grey;
-                    width: 2rem;
-                    height: 2rem;
-                    display: block;
-                    position: relative;
-                    transition: all 0.5s;
-                    cursor: pointer;
-                }
-                .task-file:hover{
-                    background-color: $light-blue;
-                }
-                .task-file::after{
-                    position: absolute;
-                    content: '+';
-                    font-size: 1.8rem;
-                    color: #fff;
-                    top: 50%;
-                    transform: translate(-50%,-50%);
-                    left: 50%;
-                }
-                textarea{
-                    width: 100%;
-                    resize: none;
-                    padding: 0.5rem 1rem;
-                }
-            }
-            input{
-                padding: 0.5rem 1rem;
-                margin-right: 0.5rem;
-            }
-        }
-        .editTask-btn{
-            position: relative;
-            height: 60px;
-            a{
-                position: absolute;
-                display: block;
-                width: 50%;
-                height: 60px;
-                text-align: center;
-                line-height: 60px;
-                transition: all 0.5s;
-                box-shadow: 2px 2px 8px grey;
-            }
-            a:hover{
-                z-index: 1;
-                width: 55%;
-                height: 70px;
-                line-height: 70px;
-            }
-            .editTask-btn-cancel{
-                color: red;
-                background-color: #fff;
-            }
-            .editTask-btn-add{
-                right: 0;
-                background-color: $light-blue;
-                color: #fff;
-            }
-        }
+    .editTask-hide.active{
+        max-height: 900px;
     }
 }
 /*container end*/
