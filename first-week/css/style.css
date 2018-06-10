@@ -1,0 +1,503 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  font-family: 'Arial';
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*通用class*/
+.clearfix {
+  clear: both;
+}
+
+.wrap {
+  background-color: #E1E1E1;
+  height: 100%;
+}
+
+/*header start*/
+header {
+  background-color: #4A90E2;
+  margin-bottom: 22px;
+}
+
+header .navbar {
+  max-width: 660px;
+  margin: 0 auto;
+  display: flex;
+}
+
+header .navbar li {
+  width: 33.333333%;
+  float: left;
+}
+
+header .navbar li a {
+  display: block;
+  color: #fff;
+  font-size: 1.5rem;
+  height: 76px;
+  text-align: center;
+  line-height: 76px;
+}
+
+/*header end*/
+/*container start*/
+.container {
+  max-width: 660px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.container .addBox {
+  margin-bottom: 16px;
+}
+
+.container .addBox .addTask {
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 17px 33px;
+  border: 2px solid #C8C8C8;
+  border-radius: 5px;
+}
+
+.container .title {
+  background-color: #F2F2F2;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px grey;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 1s;
+}
+
+.container .title .title-roof {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.container .title .title-roof span,
+.container .title .title-roof input {
+  display: block;
+}
+
+.container .title .title-roof .title-check {
+  border-radius: 2px;
+  background-color: #fff;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
+}
+
+.container .title .title-roof .title-text {
+  background-color: #F2F2F2;
+  font-size: 1.5rem;
+  flex-grow: 4;
+}
+
+.container .title .title-roof .title-edit {
+  align-items: flex-end;
+  margin-left: 1.5rem;
+}
+
+.container .title .title-footer {
+  padding: 0 50px;
+  display: flex;
+}
+
+.container .title .title-footer span,
+.container .title .title-footer input {
+  display: block;
+}
+
+.container .title .title-footer span {
+  color: #757575;
+  margin-right: 1rem;
+}
+
+.container .title .editTask {
+  width: 100%;
+  padding: 25.6px 72px;
+  left: 0;
+}
+
+.container .title .editTask li {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.container .title .editTask li span {
+  margin-right: 0.5rem;
+}
+
+.container .title .editTask li span i {
+  margin-right: 5px;
+}
+
+.container .title .editTask li h2 {
+  margin-top: 0.5rem;
+  padding: 0 1rem;
+}
+
+.container .title .editTask li h2 .task-file {
+  background-color: #C8C8C8;
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  position: relative;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.container .title .editTask li h2 .task-file:hover {
+  background-color: #4A90E2;
+}
+
+.container .title .editTask li h2 .task-file::after {
+  position: absolute;
+  content: '+';
+  font-size: 1.8rem;
+  color: #fff;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+
+.container .title .editTask li h2 textarea {
+  width: 100%;
+  resize: none;
+  padding: 0.5rem 1rem;
+}
+
+.container .title .editTask li input {
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+}
+
+.container .title .editTask .editTask-btn {
+  position: relative;
+  height: 60px;
+}
+
+.container .title .editTask .editTask-btn a {
+  position: absolute;
+  display: block;
+  width: 50%;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  transition: all 0.5s;
+  box-shadow: 2px 2px 8px grey;
+}
+
+.container .title .editTask .editTask-btn a:hover {
+  z-index: 1;
+  width: 55%;
+  height: 70px;
+  line-height: 70px;
+}
+
+.container .title .editTask .editTask-btn .editTask-btn-cancel {
+  color: red;
+  background-color: #fff;
+}
+
+.container .title .editTask .editTask-btn .editTask-btn-add {
+  right: 0;
+  background-color: #4A90E2;
+  color: #fff;
+}
+
+.container .title.active {
+  padding: 1.5rem 2rem;
+  max-height: 800px;
+}
+
+/*container end*/
+.new-title {
+  background-color: #F2F2F2;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  padding: 1.5rem 2rem;
+  box-shadow: 2px 2px 8px grey;
+  transition: all 1s;
+}
+
+.new-title .title-roof {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.new-title .title-roof span,
+.new-title .title-roof input {
+  display: block;
+}
+
+.new-title .title-roof .title-check {
+  border-radius: 2px;
+  background-color: #fff;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
+}
+
+.new-title .title-roof .title-text {
+  background-color: #F2F2F2;
+  font-size: 1.5rem;
+  flex-grow: 4;
+}
+
+.new-title .title-roof .title-edit {
+  align-items: flex-end;
+  margin-left: 1.5rem;
+}
+
+.new-title .title-footer {
+  padding: 0 50px;
+  display: flex;
+}
+
+.new-title .title-footer span,
+.new-title .title-footer input {
+  display: block;
+}
+
+.new-title .title-footer span {
+  color: #757575;
+  margin-right: 1rem;
+}
+
+.new-title .editTask {
+  width: 100%;
+  padding: 25.6px 72px;
+  left: 0;
+}
+
+.new-title .editTask li {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.new-title .editTask li span {
+  margin-right: 0.5rem;
+}
+
+.new-title .editTask li span i {
+  margin-right: 5px;
+}
+
+.new-title .editTask li h2 {
+  margin-top: 0.5rem;
+  padding: 0 1rem;
+}
+
+.new-title .editTask li h2 .task-file {
+  background-color: #C8C8C8;
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  position: relative;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.new-title .editTask li h2 .task-file:hover {
+  background-color: #4A90E2;
+}
+
+.new-title .editTask li h2 .task-file::after {
+  position: absolute;
+  content: '+';
+  font-size: 1.8rem;
+  color: #fff;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+
+.new-title .editTask li h2 textarea {
+  width: 100%;
+  resize: none;
+  padding: 0.5rem 1rem;
+}
+
+.new-title .editTask li input {
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+}
+
+.new-title .editTask .editTask-btn {
+  position: relative;
+  height: 60px;
+}
+
+.new-title .editTask .editTask-btn a {
+  position: absolute;
+  display: block;
+  width: 50%;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  transition: all 0.5s;
+  box-shadow: 2px 2px 8px grey;
+}
+
+.new-title .editTask .editTask-btn a:hover {
+  z-index: 1;
+  width: 55%;
+  height: 70px;
+  line-height: 70px;
+}
+
+.new-title .editTask .editTask-btn .editTask-btn-cancel {
+  color: red;
+  background-color: #fff;
+}
+
+.new-title .editTask .editTask-btn .editTask-btn-add {
+  right: 0;
+  background-color: #4A90E2;
+  color: #fff;
+}
+
+/*新增task*/
+/*# sourceMappingURL=style.css.map */

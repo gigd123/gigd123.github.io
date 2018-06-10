@@ -1,0 +1,464 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    font-family: 'Arial';
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* {
+    box-sizing: border-box;
+    border:none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*通用class*/
+
+$light-blue:#4A90E2;
+$light-orange:#FFF2DC;
+$orange:#F5A623;
+$light-grey:#E1E1E1;
+$grey:#C8C8C8;
+$beige:#F2F2F2;
+$icon-color:#757575;
+.clearfix {
+    clear: both;
+}
+
+.wrap {
+    background-color: $light-grey;
+    height: 100%;
+}
+
+/*header start*/
+
+header {
+    background-color: $light-blue;
+    margin-bottom: 22px;
+    .navbar {
+        max-width: 660px;
+        margin: 0 auto;
+        display: flex;
+        li {
+            width: 33.333333%;
+            float: left;
+            a {
+                display: block;
+                color: #fff;
+                font-size: 1.5rem;
+                height: 76px;
+                text-align: center;
+                line-height: 76px;
+            }
+        }
+    }
+}
+
+/*header end*/
+
+/*container start*/
+
+.container {
+    max-width: 660px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    .addBox {
+        margin-bottom: 16px;
+        .addTask{
+            width: 100%;
+            font-size: 1.5rem;
+            padding: 17px 33px;
+            border: 2px solid #C8C8C8;
+            border-radius: 5px;
+        }
+    }
+    .title {
+        background-color: $beige;
+        font-size: 1.5rem;
+        border-radius: 5px;
+        box-shadow: 2px 2px 8px grey;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 1s;
+        // position: relative;
+        .title-roof {
+            display: flex;
+            margin-bottom: 1rem;
+            span,
+            input {
+                display: block;
+            }
+            .title-check {
+                border-radius: 2px;
+                background-color: #fff;
+                width: 1.5rem;
+                height: 1.5rem;
+                margin-right: 1rem;
+            }
+            .title-text {
+                background-color: $beige;
+                font-size: 1.5rem;
+                flex-grow: 4;
+            }
+            .title-edit {
+                align-items: flex-end;
+                margin-left: 1.5rem;
+            }
+        }
+        .title-footer {
+            padding: 0 50px;
+            display: flex;
+            span,
+            input {
+                display: block;
+            }
+            span {
+                color: $icon-color;
+                margin-right: 1rem;
+            }
+        }
+        .editTask{
+            width: 100%;
+            padding: 25.6px 72px;
+            // position: absolute;
+            left: 0;
+            li{
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                span {
+                    margin-right:0.5rem;
+                    i{
+                        margin-right: 5px;
+                    }
+                }
+                h2 {
+                    margin-top: 0.5rem;
+                    padding: 0 1rem;
+                    .task-file{
+                        background-color: $grey;
+                        width: 2rem;
+                        height: 2rem;
+                        display: block;
+                        position: relative;
+                        transition: all 0.5s;
+                        cursor: pointer;
+                    }
+                    .task-file:hover{
+                        background-color: $light-blue;
+                    }
+                    .task-file::after{
+                        position: absolute;
+                        content: '+';
+                        font-size: 1.8rem;
+                        color: #fff;
+                        top: 50%;
+                        transform: translate(-50%,-50%);
+                        left: 50%;
+                    }
+                    textarea{
+                        width: 100%;
+                        resize: none;
+                        padding: 0.5rem 1rem;
+                    }
+                }
+                input{
+                    padding: 0.5rem 1rem;
+                    margin-right: 0.5rem;
+                }
+            }
+            .editTask-btn{
+                position: relative;
+                height: 60px;
+                a{
+                    position: absolute;
+                    display: block;
+                    width: 50%;
+                    height: 60px;
+                    text-align: center;
+                    line-height: 60px;
+                    transition: all 0.5s;
+                    box-shadow: 2px 2px 8px grey;
+                }
+                a:hover{
+                    z-index: 1;
+                    width: 55%;
+                    height: 70px;
+                    line-height: 70px;
+                }
+                .editTask-btn-cancel{
+                    color: red;
+                    background-color: #fff;
+                }
+                .editTask-btn-add{
+                    right: 0;
+                    background-color: $light-blue;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .title.active{
+        padding: 1.5rem 2rem;
+        max-height: 800px;   
+    }
+}
+
+/*container end*/
+.new-title {
+    background-color: $beige;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    padding: 1.5rem 2rem;
+    box-shadow: 2px 2px 8px grey;
+    transition: all 1s;
+    // position: relative;
+    .title-roof {
+        display: flex;
+        margin-bottom: 1rem;
+        span,
+        input {
+            display: block;
+        }
+        .title-check {
+            border-radius: 2px;
+            background-color: #fff;
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 1rem;
+        }
+        .title-text {
+            background-color: $beige;
+            font-size: 1.5rem;
+            flex-grow: 4;
+        }
+        .title-edit {
+            align-items: flex-end;
+            margin-left: 1.5rem;
+        }
+    }
+    .title-footer {
+        padding: 0 50px;
+        display: flex;
+        span,
+        input {
+            display: block;
+        }
+        span {
+            color: $icon-color;
+            margin-right: 1rem;
+        }
+    }
+    .editTask{
+        width: 100%;
+        padding: 25.6px 72px;
+        // position: absolute;
+        left: 0;
+        li{
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            span {
+                margin-right:0.5rem;
+                i{
+                    margin-right: 5px;
+                }
+            }
+            h2 {
+                margin-top: 0.5rem;
+                padding: 0 1rem;
+                .task-file{
+                    background-color: $grey;
+                    width: 2rem;
+                    height: 2rem;
+                    display: block;
+                    position: relative;
+                    transition: all 0.5s;
+                    cursor: pointer;
+                }
+                .task-file:hover{
+                    background-color: $light-blue;
+                }
+                .task-file::after{
+                    position: absolute;
+                    content: '+';
+                    font-size: 1.8rem;
+                    color: #fff;
+                    top: 50%;
+                    transform: translate(-50%,-50%);
+                    left: 50%;
+                }
+                textarea{
+                    width: 100%;
+                    resize: none;
+                    padding: 0.5rem 1rem;
+                }
+            }
+            input{
+                padding: 0.5rem 1rem;
+                margin-right: 0.5rem;
+            }
+        }
+        .editTask-btn{
+            position: relative;
+            height: 60px;
+            a{
+                position: absolute;
+                display: block;
+                width: 50%;
+                height: 60px;
+                text-align: center;
+                line-height: 60px;
+                transition: all 0.5s;
+                box-shadow: 2px 2px 8px grey;
+            }
+            a:hover{
+                z-index: 1;
+                width: 55%;
+                height: 70px;
+                line-height: 70px;
+            }
+            .editTask-btn-cancel{
+                color: red;
+                background-color: #fff;
+            }
+            .editTask-btn-add{
+                right: 0;
+                background-color: $light-blue;
+                color: #fff;
+            }
+        }
+    }
+}
+/*新增task*/ 
