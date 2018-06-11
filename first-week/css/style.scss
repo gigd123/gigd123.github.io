@@ -354,7 +354,7 @@ header {
     box-shadow: 2px 2px 8px grey;
     transition: all 1s;
     margin-bottom: 2rem;
-    // position: relative;
+    position: relative;
     .title-roof {
         display: flex;
         margin-bottom: 1rem;
@@ -465,11 +465,11 @@ header {
                     height: 70px;
                     line-height: 70px;
                 }
-                .editTask-btn-cancel{
+                .editTask-cancel{
                     color: red;
                     background-color: #fff;
                 }
-                .editTask-btn-add{
+                .editTask-add{
                     right: 0;
                     background-color: $light-blue;
                     color: #fff;
@@ -480,5 +480,22 @@ header {
     .editTask-hide.active{
         max-height: 900px;
     }
+    .task-delete{
+        background-color: $light-blue;
+        color: #fff;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        position: absolute;
+        right: -30px;
+        top: 30%; 
+        transition: all 1s;
+        opacity: 0; 
+        cursor: pointer;
+    }
+}
+.new-title:hover .task-delete{
+    opacity: 1;
 }
 /*container end*/

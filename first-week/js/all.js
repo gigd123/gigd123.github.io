@@ -15,7 +15,8 @@ function addTitleBox(){
 /*點擊cancel時候，關閉addTask，顯示addBox*/ 
 const cancelBtn = document.querySelector('.editTask-btn-cancel');
 cancelBtn.addEventListener('click',cancelAdd);
-function cancelAdd(){
+function cancelAdd(e){
+    e.preventDefault();
     title.classList.remove('active');
     addBox.style.display ='block'; 
 };
@@ -47,7 +48,7 @@ function updateList(items){
     let str='';
     const len =items.length;
     for(let i=0;i<len;i++){
-        str += `<li class="new-title">
+        str += `<li data-num="${i}" class="new-title">
         <div class="title-roof">
             <input class="title-check" type="checkbox" name="vehicle" value="Bike">
             <input type="text" class="title-text" placeholder="${items[i].title}">
@@ -99,11 +100,12 @@ function updateList(items){
                     </h2>
                 </li>
                 <li class="editTask-btn">
-                    <a href="#" class="editTask-btn-cancel">× Cancel</a>
-                    <a href="#" class="editTask-btn-add">+ Add Task</a>
+                    <a href="#" class="editTask-cancel">× Cancel</a>
+                    <a href="#" class="editTask-add">+ Add Task</a>
                 </li>
             </ul>
         </div>
+        <div class="task-delete" data-delete="${i}"><i class="far fa-trash-alt"></i></div>
     </li>`;
     }
     taskList.innerHTML =str;
@@ -116,9 +118,18 @@ function editTaskData(){
     showlEdit.classList.add('active');
 };
 /*點擊cancel時候，關閉addTask，顯示addBox*/ 
-const cancelEdit = document.querySelector('.new-title .editTask-hide .editTask .editTask-btn .editTask-btn-cancel');
+const cancelEdit = document.querySelector('.editTask-cancel');
 cancelEdit.addEventListener('click',cancelAdd);
 function cancelAdd(e){
     e.preventDefault();
     showlEdit.classList.remove('active');
 };
+/*點擊垃圾桶，刪除資料*/ 
+const taskDelete = document.querySelector('.task-delete');
+taskDelete.addEventListener('click',deleteTask);
+function deleteTask(e){
+    const deleteNum = e.target.dataset.num;
+    data.splice(deleteNum,1);
+    localStorage.setItem('allData',JSON.stringify(data));
+    updateList(data);
+}
