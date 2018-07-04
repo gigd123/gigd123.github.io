@@ -22,8 +22,8 @@
               </template>
         </div> 
         <ul class="list">
-            <li v-for="todo in todos" :class="{active:todo.completed}" v-if="currentOption=='All' || todo.completed===false && currentOption=='Active' || todo.completed===true && currentOption=='Completed'">
-                <input type="checkbox" name="" id="" v-model="todo.completed"><span>{{todo.content}}</span>
+            <li v-for="todo in todos" v-bind:class="{ active: todo.completed }" v-if="currentOption=='All' || todo.completed===false && currentOption=='Active' || todo.completed===true && currentOption=='Completed'">
+                <input type="checkbox" name="" id="" v-model="todo.completed">{{todo.content}}
                 <a href="" @click="removeToDo(todo)">delete</a>
             </li>
         </ul>

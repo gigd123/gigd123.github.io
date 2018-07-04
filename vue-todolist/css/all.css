@@ -58,9 +58,7 @@ a{
     font-size: 20px;
     border-bottom: 1px solid rgb(175, 175, 175);
 }
-.list li.active{
-    text-decoration: line-through;
-}
+
 .list li a{
     float: right;
     color: rgb(151, 6, 6);
@@ -70,13 +68,6 @@ a{
     float: right;
     text-decoration: none;
     color: rgb(238, 8, 8);
-}
-.list li span{
-    display: inline-block;
-    width: 200px;
-    overflow:hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 .delete-btn{
     display: block;
@@ -93,4 +84,7 @@ a{
 }
 .delete-btn:hover{
     background-color: rgb(212, 2, 2);
+}
+.list li.active{
+    text-decoration: line-through;
 }
