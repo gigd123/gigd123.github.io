@@ -1,0 +1,96 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    color: rgb(97, 91, 91);
+    height: 100vh;
+    background: -webkit-linear-gradient(left top,#AEABB6,#F2E7D5,#F3AD63);
+    background: -o-linear-gradient(bottom right,#AEABB6,#F2E7D5,#F3AD63);
+    background: -moz-linear-gradient(bottom right,#AEABB6,#F2E7D5,#F3AD63);
+    background: linear-gradient(to bottom right,#AEABB6,#F2E7D5,#F3AD63);
+}
+.todolist{
+    max-width: 500px;
+    margin: 100px auto;
+    padding:20px 0;
+    background-color: rgba(255, 255, 255, 0.76);
+    box-shadow: 3px 3px 15px 5px rgb(218, 218, 218); 
+}
+h1{
+    padding: 16px 0;
+    margin: 0;
+    text-align: center;
+}
+.input-box{
+    padding: 5px 32px;
+}
+.input-box input{
+    border: none;
+    font-size: 24px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    border-bottom: 1px solid rgb(175, 175, 175);
+    padding: 8px 16px;
+}
+.input-box input::-webkit-input-placeholder{
+    color: rgb(175, 175, 175);
+}
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+.menu {
+    width: 216px;
+    margin: 0 auto;
+    padding: 20px 0;
+    color: rgb(97, 91, 91);
+}
+
+.list{
+    padding: 16px 30px;
+}
+.list li{
+    padding: 10px 0;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(175, 175, 175);
+}
+.list li.active{
+    text-decoration: line-through;
+}
+.list li a{
+    float: right;
+    color: rgb(151, 6, 6);
+    transition: all 0.5s;
+}
+.list li a:hover{
+    float: right;
+    text-decoration: none;
+    color: rgb(238, 8, 8);
+}
+.list li span{
+    display: inline-block;
+    width: 200px;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.delete-btn{
+    display: block;
+    width: 100px;
+    height: 30px;
+    background-color: rgb(209, 123, 123);
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    margin: 10px auto;
+    transition: all 0.5s;
+}
+.delete-btn:hover{
+    background-color: rgb(212, 2, 2);
+}
