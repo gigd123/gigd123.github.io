@@ -1,0 +1,168 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 1px;
+    background-color: rgb(241, 255, 249);
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{
+    text-decoration: none;
+}
+/*顏色*/
+$light-green:rgb(93, 204, 158);
+$green:rgb(19, 173, 109);
+$grey4:rgb(110, 110, 110);
+
+/*navbar*/
+header{
+    background-color: $light-green;
+} 
+.navbar {
+    padding: 1.5rem;
+}
+.input-box{
+    border-bottom: 1px solid #fff;
+}
+.searchIcon{
+    color: #fff;
+}
+#search-input{
+    background-color: rgba(242, 242, 242, 0);
+    border: none;
+    font-size: 1.25rem;
+    color: #fff;
+}
+@media (max-width:768px){
+    .logo-box{
+        text-align: center;
+    } 
+    .input-box{
+        margin: 0 auto;
+    }   
+    }
+/*side-box*/
+.sideBar{
+    padding: 0  2.5rem ;
+    max-height: 240px ; 
+    box-shadow: 1px 1px 6px rgb(202, 202, 202);
+    background-color: #fff;
+    .sideBar-col{
+        padding: 1rem 0;
+        h2{
+            color: $green;
+            font-size: 1.25rem;
+            font-weight: 900;
+            margin-bottom: 0.8rem;
+        }
+        select{
+            padding: 0.6rem 0.5rem;
+            width: 100%;
+            color: $green;
+            border:1px solid $green;
+        }
+        p{
+            color: $green;
+            .totalAmount{
+                color: #990098; 
+                font-weight: 900;
+            }
+        }
+    }
+    
+}
+@media (max-width:960px){
+.sideBar{
+    padding: 0  1rem ;
+}    
+}
+/*list*/
+.list{
+    .list-card{
+        box-shadow: 4px 4px 8px rgb(202, 202, 202);
+        transition: all 0.5s;
+        background-color: #fff;
+        overflow: hidden;
+        .card-pic{
+            background-size: cover;
+            background-position: center;
+        }
+        h2{
+            font-size: 1.5rem;
+            color: $green;
+            font-weight:900;
+        }
+        .card-info{
+            color: $grey4;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            line-height: 1.5;
+        }
+        p{
+            color: $grey4; 
+        }
+    }
+    .list-card:hover{
+        box-shadow: 4px 4px 30px rgb(141, 141, 141);
+    }
+} 
+@media (max-width:960px){
+.card-pic{
+    height: 250px;
+}
+}
+/*pagination*/
+.pagination{
+    a{
+        display: block;
+        background-color: #fff;
+        border: 1px solid $green;
+        color: $green;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 25px;
+        margin: 0 0.1rem;
+        margin-bottom: 0.5rem;
+    }
+    a:hover{
+        text-decoration: none;
+        background-color: $green;
+        color: #fff;
+    }
+}

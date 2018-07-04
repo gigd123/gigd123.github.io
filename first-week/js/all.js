@@ -1,3 +1,8 @@
+document.querySelector('.wrap').style.height = window.innerHeight+'px';
+window.onresize= function(){
+    this.document.querySelector('.wrap').style.height =window.innerHeight+'px';
+};
+
 /*focus在addTask時候，觸發事件*/ 
 const addTask = document.getElementById('addTask');
 addTask.addEventListener('focus',addTitleBox);
@@ -61,7 +66,7 @@ function updateList(items){
         </div>
         <div class="title-footer">
             <span>
-                <i class="far fa-calendar-alt fa-xs"></i>
+                <i class="far fa-calendar-alt fa-xs">${items[i].deadLineDate}</i>
             </span>
             <span>
                 <i class="far fa-file fa-xs"></i>
@@ -111,24 +116,24 @@ function updateList(items){
     taskList.innerHTML =str;
 };
 /*點擊pencil，編輯task*/ 
-const editTask = document.querySelector('.new-title .title-roof .title-edit');
-const showlEdit = document.querySelector('.new-title .editTask-hide');
-editTask.addEventListener('click',editTaskData);
-function editTaskData(){
-    showlEdit.classList.add('active');
-};
+
 /*點擊cancel時候，關閉addTask，顯示addBox*/ 
-const cancelEdit = document.querySelector('.editTask-cancel');
-cancelEdit.addEventListener('click',cancelAdd);
-function cancelAdd(e){
-    e.preventDefault();
-    showlEdit.classList.remove('active');
-};
+$(document).ready(function () {
+    $('.title-edit').click(function(e){
+        e.preventDefault();
+        $(this).parent().siblings('.editTask-hide').slideToggle(1000);
+        $(this).parent().parent().siblings('.new-title').find('.editTask-hide').slideUp(1000);
+    });
+    $('.editTask-cancel').click(function(e){
+        e.preventDefault();
+        $(this).parent().parent().parent().slideUp(1000);
+    });
+});
 /*點擊垃圾桶，刪除資料*/ 
-const taskDelete = document.querySelector('.task-delete');
+var taskDelete = document.querySelector('.task-delete');
 taskDelete.addEventListener('click',deleteTask);
 function deleteTask(e){
-    const deleteNum = e.target.dataset.num;
+    var deleteNum = e.target.dataset.num;
     data.splice(deleteNum,1);
     localStorage.setItem('allData',JSON.stringify(data));
     updateList(data);

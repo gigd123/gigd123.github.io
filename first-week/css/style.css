@@ -151,7 +151,7 @@ a {
 
 .wrap {
   background-color: #E1E1E1;
-  height: 100%;
+  height: auto;
 }
 
 /*header start*/
@@ -263,7 +263,6 @@ header .navbar li a {
   background-color: #F2F2F2;
   width: 100%;
   padding: 25.6px 72px;
-  box-shadow: 2px 2px 8px grey;
   left: 0;
 }
 
@@ -425,9 +424,7 @@ header .navbar li a {
 }
 
 .new-title .editTask-hide {
-  max-height: 0;
-  overflow: hidden;
-  transition: all 1s;
+  display: none;
 }
 
 .new-title .editTask-hide .editTask {
@@ -520,10 +517,6 @@ header .navbar li a {
   right: 0;
   background-color: #4A90E2;
   color: #fff;
-}
-
-.new-title .editTask-hide.active {
-  max-height: 900px;
 }
 
 .new-title .task-delete {

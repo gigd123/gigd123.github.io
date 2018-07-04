@@ -1,0 +1,189 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 1px;
+  background-color: #f1fff9;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*顏色*/
+/*navbar*/
+header {
+  background-color: #5dcc9e;
+}
+
+.navbar {
+  padding: 1.5rem;
+}
+
+.input-box {
+  border-bottom: 1px solid #fff;
+}
+
+.searchIcon {
+  color: #fff;
+}
+
+#search-input {
+  background-color: rgba(242, 242, 242, 0);
+  border: none;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .logo-box {
+    text-align: center;
+  }
+  .input-box {
+    margin: 0 auto;
+  }
+}
+
+/*side-box*/
+.sideBar {
+  padding: 0  2.5rem;
+  max-height: 240px;
+  box-shadow: 1px 1px 6px #cacaca;
+  background-color: #fff;
+}
+
+.sideBar .sideBar-col {
+  padding: 1rem 0;
+}
+
+.sideBar .sideBar-col h2 {
+  color: #13ad6d;
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin-bottom: 0.8rem;
+}
+
+.sideBar .sideBar-col select {
+  padding: 0.6rem 0.5rem;
+  width: 100%;
+  color: #13ad6d;
+  border: 1px solid #13ad6d;
+}
+
+.sideBar .sideBar-col p {
+  color: #13ad6d;
+}
+
+.sideBar .sideBar-col p .totalAmount {
+  color: #990098;
+  font-weight: 900;
+}
+
+@media (max-width: 960px) {
+  .sideBar {
+    padding: 0  1rem;
+  }
+}
+
+/*list*/
+.list .list-card {
+  box-shadow: 4px 4px 8px #cacaca;
+  transition: all 0.5s;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.list .list-card .card-pic {
+  background-size: cover;
+  background-position: center;
+}
+
+.list .list-card h2 {
+  font-size: 1.5rem;
+  color: #13ad6d;
+  font-weight: 900;
+}
+
+.list .list-card .card-info {
+  color: #6e6e6e;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.5;
+}
+
+.list .list-card p {
+  color: #6e6e6e;
+}
+
+.list .list-card:hover {
+  box-shadow: 4px 4px 30px #8d8d8d;
+}
+
+@media (max-width: 960px) {
+  .card-pic {
+    height: 250px;
+  }
+}
+
+/*pagination*/
+.pagination a {
+  display: block;
+  background-color: #fff;
+  border: 1px solid #13ad6d;
+  color: #13ad6d;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 25px;
+  margin: 0 0.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.pagination a:hover {
+  text-decoration: none;
+  background-color: #13ad6d;
+  color: #fff;
+}
+/*# sourceMappingURL=all.css.map */

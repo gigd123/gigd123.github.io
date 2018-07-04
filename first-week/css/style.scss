@@ -160,7 +160,7 @@ $icon-color:#757575;
 
 .wrap {
     background-color: $light-grey;
-    height: 100%;
+    height: auto;
 }
 
 /*header start*/
@@ -257,7 +257,6 @@ header {
             background-color: $beige;
             width: 100%;
             padding: 25.6px 72px;
-            box-shadow: 2px 2px 8px grey;
             left: 0;
             li{
                 font-size: 1.2rem;
@@ -395,9 +394,7 @@ header {
         }
     }
     .editTask-hide{
-        max-height: 0;
-        overflow: hidden;
-        transition: all 1s;
+        display: none;
         .editTask{
             padding: 25.6px 72px;
             // position: absolute;
@@ -476,9 +473,6 @@ header {
                 }
             }
         }
-    }
-    .editTask-hide.active{
-        max-height: 900px;
     }
     .task-delete{
         background-color: $light-blue;
