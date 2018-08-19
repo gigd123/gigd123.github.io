@@ -1,22 +1,83 @@
-var toDoList = new Vue({
-    el:'.todolist',
-    data:{
-        todos:[],
-        newTodo:'',
-        options:['All','Active','Completed'],
-        currentOption:'All'
+var app = new Vue({
+    el: '#todolist',
+    data: {
+      newTodo:'',
+      todos:[],
+      visibility:'all',
+      catchTodo:{},
+      catchTitle:'',
     },
     methods:{
-        addToDo: function(todo){
-            this.todos.push({content:todo,completed:false})
+        addTodo : function(){
+            var value = this.newTodo.trim();
+            var newNumber = Math.floor(new Date());
+            if(!value){
+                return;
+            }
+            this.todos.push({
+                id:newNumber,
+                title:value,
+                completed:false
+            });
+            this.newTodo ='';
         },
-        removeToDo: function(todo){
-            this.todos.splice(this.todos.indexOf(todo),1)
+        removeTodo : function(todo){
+            var newIndex = '';
+            var vm = this;
+            vm.todos.forEach(function(item, key){
+                if(todo.id === item.id){
+                    newIndex = key;
+                }
+            })
+            this.todos.splice(newIndex,1);
         },
-        removeAll: function(){
-            this.todos.splice(this.todos)
+        editTodo : function(item){
+            console.log(item);
+           this.catchTodo = item;
+           this.catchTitle = item.title;
+        },
+        cancelTodo : function(){
+            this.catchTodo = {};
+        },
+        saveTodo : function(item){
+            item.title = this.catchTitle;
+            this.catchTitle = '';
+            this.catchTodo = {};
+        },
+        removeAll : function(){
+            this.todos = [];
+        }
+    },
+    computed:{
+        filterTodo: function(){
+            if(this.visibility == 'all'){
+                return this.todos;
+            }else if(this.visibility == 'active'){
+                var newTodos = [];
+                this.todos.forEach(function(item){
+                    if(!item.completed){
+                        newTodos.push(item);
+                    }
+                })
+                return newTodos;
+            }else if(this.visibility == 'completed'){
+                var newTodos = [];
+                this.todos.forEach(function(item){
+                    if(item.completed){
+                        newTodos.push(item);
+                    }
+                })
+                return newTodos;
+            }
+        },
+        todoCount : function(){
+            var todoAmount = [];
+            this.todos.forEach(function(item){
+                if(!item.completed){
+                    todoAmount.push(item);
+                }
+            })
+            return todoAmount.length;
         }
     }
-});
-
-   
+})

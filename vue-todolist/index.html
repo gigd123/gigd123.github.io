@@ -4,32 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Vue Todolist-practice</title>
+    <title>Vue-Todolist</title>
     <link rel="stylesheet" href="css/all.css">
 </head>
 <body>
-    <div class="todolist">
-        <h1>Vue-Todolist</h1>
-        <div class="input-box">
-            <input @keyup.enter="addToDo(newTodo)" v-model="newTodo" type="text" name="" id="" placeholder="What needs to be done?">
+    <div class="wrap" id="todolist">
+        <h1>Todolist</h1>
+        <div class="input-group">
+            <input class="addtodo" type="text" placeholder="Something you need to do " v-model="newTodo" @keyup.enter="addTodo">
+            <button id="addtodo-button" class="btn" @click="addTodo">Add</button>
         </div>
-        <div class="menu">
-            <template v-for="option in options">
-                <input type="radio"
-                  :value="option"
-                  v-model="currentOption">
-                {{ option }}
-              </template>
-        </div> 
-        <ul class="list">
-            <li v-for="todo in todos" v-bind:class="{ active: todo.completed }" v-if="currentOption=='All' || todo.completed===false && currentOption=='Active' || todo.completed===true && currentOption=='Completed'">
-                <input type="checkbox" name="" id="" v-model="todo.completed">{{todo.content}}
-                <a href="#" @click.prevent="removeToDo(todo)">delete</a>
-            </li>
+        <div class="active-status">
+            <ul>
+                <li><a href="#" :class="{'active-li' : visibility == 'all'}" @click="visibility = 'all'">All</a></li>
+                <li><a href="#" :class="{'active-li' : visibility == 'active'}" @click="visibility = 'active'" >Active</a></li>
+                <li><a href="#" :class="{'active-li' : visibility == 'completed'}" @click="visibility = 'completed'">Completed</a></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <ul>
+            <li v-for="(item, key) in filterTodo" @dblclick="editTodo(item)">
+                <div class="list-group" v-if="item.id !== catchTodo.id">
+                    <input type="checkbox" name="" :id="item.id" v-model="item.completed">
+                    <label :class="{completed : item.completed}" :for="item.id"> {{item.title}} </label>
+                    <button class="btn" @click="removeTodo(item)">Delete</button>
+                    <button class="btn" @click="editTodo(item)">Edit</button>
+                </div>
+                <div class="edit-group" v-if="item.id === catchTodo.id">
+                    <input class="edit-input" type="text" v-model="catchTitle" @keyup.esc="cancelTodo()" @keyup.enter="saveTodo(item)">
+                    <button class="btn" @click="saveTodo(item)">Save</button><button class="btn" @click="cancelTodo()">Cancel</button>
+                </div>
+            </li>   
         </ul>
-        <a class="delete-btn" href="http:#" @click="removeAll()">Delete All</a>
+        <div class="footer">
+            <div class="remind">Sill have <span> {{todoCount}} </span> case need to complete</div>
+            <div class="delete-all"><button class="btn" @click="removeAll()">Delete all</button></div>
+        </div>
     </div>
-    
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/all.js"></script>
