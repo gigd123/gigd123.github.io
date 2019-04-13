@@ -65,7 +65,6 @@ submitData.addEventListener('click', clickBtn);
 const addBmiData = (userWeight ,userHeight)=>{
     //make sure user input number
     if(!isNaN(userWeight) && !isNaN(userHeight) && Weight.value !== '' && Height.value !=='' && userWeight !== 0 && userHeight !== 0){
-        console.log('push data to firebase')
         const bmiObj = {
             weight: userWeight,
             height: userHeight,
@@ -73,12 +72,19 @@ const addBmiData = (userWeight ,userHeight)=>{
             date: showTime()
         }
         bmiTodos.push(bmiObj);
-        btnResult.textContent ='';
-        btnBmiValue.classList.add('active');
-        btnBmi.classList.add('active');
+
+        // after data is send
         Height.value = '';
         Weight.value = '';
-        btnBmiValue.textContent = calculateBmi(userWeight, userHeight);    
+        btnBmiValue.textContent = calculateBmi(userWeight, userHeight);   
+        
+        // show result view on button
+        bmiItems.on('value', function(bmiItems){
+            const txtItems = bmiItems.val()
+            sortWeightButton(+btnBmiValue.textContent, txtItems);
+        })
+
+
         if(userWeight > 500 || userHeight > 300){
             ridiculous.textContent = "你輸入的數據有點驚人 （⊙ｏ⊙）"
         }   
@@ -104,7 +110,6 @@ const addBmiData = (userWeight ,userHeight)=>{
             Height.value = '';
             Height.focus();
         }else if(userWeight === 0){
-            console.log('userWeight is wrong')
             Weight.value = '';   
             Weight.focus();
         }
@@ -124,7 +129,7 @@ const showBmiTodo = (data)=>{
     bmiItems.on('value', function(bmiItems){
         const txtItems = bmiItems.val()
         for( item in bmiData){
-            const sortData = sortWeight(bmiData, txtItems);
+            const sortData = sortWeightList(bmiData, txtItems);
             str +=`<li class="${sortData.color} d-flex justify-content-between"><div class="col">${sortData.bmiTxt}</div><div class="col"><span>BMI</span>${bmiData[item].bmi}</div>
                 <div class="col"><span>Weight</span>${bmiData[item].weight}</div>
                 <div class="col"><span>Height</span>${bmiData[item].height}</div>
@@ -143,50 +148,66 @@ const sendBtnChange=(color)=>{sendBtn.className = color;}
 const btnIconChange=(color)=>{btnIcon.className = color;}
 const diagnosText=(text)=>{diagnos.textContent = text;}
 
+
 const changeButtonView=(diagnosColor ,sendBtnColor ,btnIconColor ,text)=>{
     diagnosChange(diagnosColor);
     sendBtnChange(sendBtnColor);
     btnIconChange(btnIconColor);
     diagnosText(text);
+    btnResult.textContent ='';
+    btnBmiValue.classList.add('active');
+    btnBmi.classList.add('active');
 }
 
-// sortWeight for list
-const sortWeight = (bmiData, txtItems)=>{
-    let sortData ={};
-    if(bmiData[item].bmi < 18.5){
+const sortWeightButton =(bmi, txtItems)=>{
+    if(bmi < 18.5){
         if(!!buttonClick){
             changeButtonView('font-g' ,'green' ,'btn-load-block bg-g' ,txtItems.underWeight);
         }
-        sortData.bmiTxt = txtItems.underWeight;
-        sortData.color = 'border-l-g';
-    }else if(bmiData[item].bmi > 18.5 &&　bmiData[item].bmi < 25){
+    }else if(bmi > 18.5 &&　bmi < 25){
         if(!!buttonClick){
             changeButtonView('font-b' ,'blue' ,'btn-load-block bg-b' ,txtItems.ideal);
         }
-        sortData.bmiTxt = txtItems.ideal;
-        sortData.color = 'border-l-b';
-    }else if(bmiData[item].bmi > 25 && bmiData[item].bmi < 30){
+    }else if(bmi > 25 && bmi < 30){
         if(!!buttonClick){
             changeButtonView('font-o1' ,'orange1' ,'btn-load-block bg-o1' ,txtItems.mildObesity);
         }
-        sortData.bmiTxt = txtItems.mildObesity;
-        sortData.color = 'border-l-o1';
-    }else if(bmiData[item].bmi > 30 && bmiData[item].bmi < 35){
+    }else if(bmi > 30 && bmi < 35){
         if(!!buttonClick){
             changeButtonView('font-o2' ,'orange2' ,'btn-load-block bg-o2' ,txtItems.moderateObesity);
         }
-        sortData.bmiTxt = txtItems.moderateObesity;
-        sortData.color = 'border-l-o2';
-    }else if(bmiData[item].bmi > 35 && bmiData[item].bmi < 40){
+    }else if(bmi > 35 && bmi < 40){
         if(!!buttonClick){
             changeButtonView('font-o3' ,'orange3' ,'btn-load-block bg-o3' ,txtItems.overWeight);
         }
-        sortData.bmiTxt = txtItems.overWeight;
-        sortData.color = 'border-l-o3';
-    }else if(bmiData[item].bmi > 40){
+    }else if(bmi > 40){
         if(!!buttonClick){
             changeButtonView('font-r' ,'red' ,'btn-load-block bg-r' ,txtItems.severeObesity);
         }
+    }
+}
+
+
+
+// sortWeight for list
+const sortWeightList = (bmiData, txtItems)=>{
+    let sortData ={};
+    if(bmiData[item].bmi < 18.5){
+        sortData.bmiTxt = txtItems.underWeight;
+        sortData.color = 'border-l-g';
+    }else if(bmiData[item].bmi > 18.5 &&　bmiData[item].bmi < 25){
+        sortData.bmiTxt = txtItems.ideal;
+        sortData.color = 'border-l-b';
+    }else if(bmiData[item].bmi > 25 && bmiData[item].bmi < 30){
+        sortData.bmiTxt = txtItems.mildObesity;
+        sortData.color = 'border-l-o1';
+    }else if(bmiData[item].bmi > 30 && bmiData[item].bmi < 35){
+        sortData.bmiTxt = txtItems.moderateObesity;
+        sortData.color = 'border-l-o2';
+    }else if(bmiData[item].bmi > 35 && bmiData[item].bmi < 40){
+        sortData.bmiTxt = txtItems.overWeight;
+        sortData.color = 'border-l-o3';
+    }else if(bmiData[item].bmi > 40){
         sortData.bmiTxt = txtItems.severeObesity;
         sortData.color = 'border-l-r';
     }
