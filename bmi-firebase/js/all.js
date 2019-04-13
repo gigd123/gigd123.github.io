@@ -123,13 +123,13 @@ const showBmiTodo = (data)=>{
     const bmiData = data.val();
     bmiItems.on('value', function(bmiItems){
         const txtItems = bmiItems.val()
-        console.log(txtItems)
         for( item in bmiData){
             const sortData = sortWeight(bmiData, txtItems);
             str +=`<li class="${sortData.color} d-flex justify-content-between"><div class="col">${sortData.bmiTxt}</div><div class="col"><span>BMI</span>${bmiData[item].bmi}</div>
                 <div class="col"><span>Weight</span>${bmiData[item].weight}</div>
                 <div class="col"><span>Height</span>${bmiData[item].height}</div>
-                <div class="col"><span>${bmiData[item].date}</span></div></li>`;
+                <div class="col"><span>${bmiData[item].date}</span></div>
+                <div class="col"><button class="btn-delete" data-index="${item}">刪除</button></li>`;
         }
         list.innerHTML = str;
     })
@@ -199,3 +199,20 @@ const showTime = ()=>{
     const showDate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
     return showDate;
 }
+
+// delete bmi
+function deleteData (e) {
+    e.preventDefault()
+    if (e.target.tagName !== 'A') { return }
+    let str = e.target.dataset.index
+    dataRef.child(str).remove()
+    updataLiet()
+  }
+const deleteToDo = (e)=> {
+    if(e.target.nodeName === 'BUTTON'){
+      const key =  e.target.dataset.index;
+      bmiTodos.child(key).remove();
+    }
+  }
+
+  list.addEventListener('click', deleteToDo);

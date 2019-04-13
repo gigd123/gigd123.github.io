@@ -230,3 +230,16 @@ footer {
   color: #FF1200;
   text-align: center;
 }
+.btn-delete {
+  border: none;
+  border-radius: 2px;
+  padding: 4px 6px;
+  background-color: rgb(252, 52, 52);
+  color: white;
+}
+
+.btn-delete:hover{
+  background-color: red;
+  -webkit-box-shadow: 0 0 30px rgb(252, 52, 52);
+  transition: all 0.5s;
+}
